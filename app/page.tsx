@@ -8,7 +8,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import MovieCard from "./components/MovieCard";
 import Link from "next/link";
 
-const API_URL = "http://www.omdbapi.com?apikey=903981b3";
+const API_URL = `http://www.omdbapi.com?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}`;
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
