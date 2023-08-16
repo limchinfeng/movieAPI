@@ -81,6 +81,13 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           path: ./out
+      - name: Deploy to GitHub Pages
+        run: |
+          echo "NEXT_PUBLIC_OMDB_API_KEY=$NEXT_PUBLIC_OMDB_API_KEY" >> .env.local
+          npx next export
+          # Deploy the generated files to GitHub Pages here
+        env:
+          NEXT_PUBLIC_OMDB_API_KEY: ${{ secrets.NEXT_PUBLIC_OMDB_API_KEY }}
 
   # Deployment job
   deploy:
